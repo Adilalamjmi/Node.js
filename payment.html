@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>payment</title>
+<meta name="viewpoint" content="width=device-width ,initial-scale=1"> 
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css"> 
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"> 
+<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.css"> 
+<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css"> 
+<script type="text/javascript" src="jQuery.js"></script> 
+<script type="text/javascript" src="js/bootstrap.js"></script> 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style type="text/css">
+body { 
+	margin-top:20px; 
+}
+.credit-card-box .panel-title {
+    display: inline;
+    font-weight: bold;
+}
+.credit-card-box .form-control.error 
+{
+    border-color: red;
+    outline: 0;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(255,0,0,0.6);
+}
+.credit-card-box label.error
+ {
+  font-weight: bold;
+  color: red;
+  padding: 2px 8px;
+  margin-top: 2px;
+}
+.credit-card-box .payment-errors
+ {
+  font-weight: bold;
+  color: red;
+  padding: 2px 8px;
+  margin-top: 2px;
+}
+.credit-card-box label
+ {
+    display: block;
+}
+.credit-card-box .display-table 
+{
+    display: table;
+}
+.credit-card-box .display-tr 
+{
+    display: table-row;
+}
+.credit-card-box .display-td 
+{
+    display: table-cell;
+    vertical-align: middle;
+    width: 50%;
+}
+.credit-card-box .panel-heading img 
+{
+    min-width: 180px;
+}
+</style>
+<script type="text/javascript">
+	function validate()
+	 {
+		var cardNumber=document.form.cardNumber.value;
+		var cardCVC=document.form.cardCVC.value; 
+		if (cardNumber.length<14) 
+		{
+			alert('cardNumber must be 14 digit');
+			return false; 
+		}
+		else if(cardCVC.length<3)
+		{
+		alert('CVV must be 3 digit');
+		return false;	
+		}
+	}
+</script>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-md-4">
+            <div class="panel panel-default credit-card-box">
+                <div class="panel-heading display-table" >
+                    <div class="row display-tr" >
+                        <h3 class="panel-title display-td" >Payment Details</h3>
+                        <div class="display-td" >                            
+                            <img class="img-responsive pull-right" src="http://i76.imgup.net/accepted_c22e0.png">
+                        </div>
+                    </div>                    
+                </div>
+                <div class="panel-body">
+                    <form name="form" id="payment-form" method="POST" action="/commonprofile.html" onsubmit="return validate()">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <label for="cardNumber">CARD HOLDER NAME</label>
+                                    <div class="input-group">
+                                        <input type="tel"
+                                            class="form-control"
+                                            name="name"
+                                            placeholder="CARD HOLDER NAME"
+                                            autocomplete="cc-number"
+                                            required autofocus 
+                                        />
+                                  <div class="form-group">
+                                    <label for="cardNumber">CARD NUMBER</label>
+                                    <div class="input-group">
+                                        <input type="tel"
+                                            class="form-control"
+                                            name="cardNumber"
+                                            placeholder="Valid Card Number"
+                                            autocomplete="cc-number"
+                                            required autofocus 
+                                       />
+                                        <span class="input-group-addon"><i class="fa fa-credit-card"></i></span>
+                                    </div>
+                                </div>                            
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-7 col-md-7">
+                                <div class="form-group">
+                                    <label for="cardExpiry"><span class="hidden-xs">EXPIRATION</span><span class="visible-xs-inline">EXP</span> DATE</label>
+                                    <input 
+                                        type="tel" 
+                                        class="form-control" 
+                                        name="cardExpiry"
+                                        placeholder="MM / YY"
+                                        autocomplete="cc-exp"
+                                        required 
+                                    />
+                                </div>
+                            </div>
+                            <div class="col-xs-5 col-md-5 pull-right">
+                                <div class="form-group">
+                                    <label for="cardCVC">CVC CODE</label>
+                                    <input 
+                                        type="tel" 
+                                        class="form-control"
+                                        name="cardCVC"
+                                        placeholder="CVC"
+                                        autocomplete="cc-csc"
+                                        required
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                </div>
+                            </div>                        
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <input type="submit" name="" class="subscribe btn btn-success btn-lg btn-block" value="pay">
+                            </div>
+                        </div>
+                        <div class="row" style="display:none;">
+                            <div class="col-xs-12">
+                                <p class="payment-errors"></p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>              
+        </div>            
+    </div>
+</div>
+</div>
+</body>
+</html>

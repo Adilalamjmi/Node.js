@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Common Man</title>
+	   <meta name="viewpoint" content="width=device-width ,initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
+    <script type="text/javascript" src="jQuery.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+	<style type="text/css">
+      #myVideo{
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-height: 100%;
+    min-width: 100%;
+  }
+  .content{
+
+    position: fixed;
+    bottom: -46px;
+    background: rgba( 0, 0, 0, 0.5);
+    color: #f1f1f1;
+    width: 100%;
+    padding: 20px;
+    margin-top: 10px;
+  }
+.common {
+    margin-left: 473px;
+    margin-top: 9px;
+    /*border-radius: 20px;*/
+    /*border: 2px solid green;*/
+    width: 370px;
+    height: 643px;
+    
+}
+input{
+    text-align: center;
+    background-color: white;
+    color: black;
+}
+
+label{
+    margin-left: -62px;
+    color: white;
+    font-size: 18px;
+}
+p {
+    color: white;
+    font-size: 23px;
+    margin-left: 61px;
+    margin-top: 20px
+}
+.First{
+    margin-left: 24px;
+    /*border-radius: 20px;*/
+    width: 310px;
+    height: 34px;
+}
+.last{
+    margin-left: 52px;
+    /* border-radius: 20px; */
+    margin-top: 11px;
+    width: 310px;
+    height: 34px;
+}
+.email{
+    margin-left: 66px;
+    /*border-radius: 20px;*/
+    margin-top: 12px;
+    width: 310px;
+    height: 34px;
+}
+.password{
+	margin-left: 30px;
+   /* border-radius: 20px;*/
+    margin-top: 12px;
+    width: 310px;
+    height: 34px;
+}
+.password1{
+	margin-left: 58px;
+    /*border-radius: 20px;*/
+    margin-top: 12px;
+   width: 310px;
+    height: 34px;
+}
+.number {
+    margin-left: 30px;
+    /*border-radius: 20px;*/
+    margin-top: 12px;
+    width: 310px;
+    height: 34px;
+}
+.DOB{
+    margin-left: 76px;
+    /*border-radius: 20px;*/
+    margin-top: 12px;
+    width: 310px;
+    height: 34px;
+}
+select{
+    margin-left: 43px;
+    margin-top: 12px;
+    width: 310px;
+    height: 34px;
+    color: black;
+
+}
+.textarea{
+    margin-left: 62px;
+    margin-top: 10px;
+    border-radius: 8px;
+    color: black;
+    height: 62px;
+}
+.nav{
+    margin-top: 10px;
+    margin-left: -136px;
+}
+#checkbox{
+    margin-left: 48px;
+    margin-top: 15px;
+    width: 20px;
+    height: 20px;
+}
+.accept{
+    margin-left: 99px;
+    color: white;
+    font-size: 14px;
+    margin-top: -31px;
+}
+span{
+    color: yellow;
+}
+#submit{
+    margin-top: -9px;
+    margin-left: 92px;
+    width: 228px;
+    font-size: 20px;
+    height: 38px;
+    color: white;
+}
+#sub{
+    margin-top: -75px;
+    margin-left: 570px;
+    font-size: 20px;
+    height: 38px;
+    width: 217px;
+}
+h4{
+    margin-top: 7px;
+    margin-left: 184px;
+    color: beige;
+}
+body{
+
+}
+
+</style>
+
+<script type="text/javascript">
+    function validate()  
+{  
+    var password=document.myform.password.value;
+    var frstpswd=document.myform.password.value;  
+    var scndpswd=document.myform.Cpassword.value;
+    var x=document.myform.email.value;  
+    var atposition=x.indexOf("@");  
+    var dotposition=x.lastIndexOf(".");  
+    if(atposition<1 || dotposition<atposition+2 || dotposition+2>=x.length){  
+     alert("Please enter a valid e-mail address "); 
+      return fasle;
+  }
+     if(password.length<6)
+      {  
+        alert("Password must be at least  characters 6 or number");  
+        return false;  
+        } 
+    if (frstpswd==scndpswd)
+    {  
+    return true;  
+    }  
+    else{  
+    alert("password must be same");  
+    return false;  
+    }  
+}
+</script>
+</head>
+<body>
+    <!-- Video tag -->
+    <video autoplay muted loop id="myVideo">
+         <source src="video\mar.mp4" type="video/mp4">
+         
+ </video>
+ <!-- video tag End -->
+<!-- content -->
+ <div class="content">
+    <!-- form Start -->
+	<form name="myform" action="/commonlogin" method="post" class="common" onsubmit="return validate();">
+	          	  <p><b><i>Common Man Registration</i></b></p>
+	          	    <label>Username</label>
+	          	      <input type="text"  name="username" placeholder=" User Name" required class="First"><br>
+	          	        <!--  <label id="user">User Name</label> -->
+	          	             <input type="Text"  name="name" placeholder="full Name" required class="last" ></br>
+	          	               <label>Email</label>
+	          	                   <input type="text"  name="email" placeholder="Email Id" required class="email"><br>
+	          	                   <label>Password</label>
+	          	                   <input type="password"  name="password" placeholder="Password" required class="password"><br>
+ 	          	                   <input type="Password"  name="Cpassword" placeholder="confirm Password" required class="password1"><br>
+	          	                <label>Mobile No</label>  
+	          	             <input type="text"  name="mobile" placeholder="+91xxxxxxxxxxxx" required class="number" pattern="[7-9]{1}[0-9]{9}" title="Phone number with 7-9 and remaing 9 digit with 0-9"><br>  	
+	          	         <label>DOB</label> 
+	          	       <input type="date"  name="DOB" placeholder="DOB" required class="DOB"><br>
+	          	    <label>Address</label>
+	          	  <select name="selectstate" > 
+                        <option required>Select State</option>
+                     	<option>Andhra Pradesh</option>
+                     	<option>Arunachal Pradesh</option>
+                     	<option>Assam</option>
+                     	<option>Bihar</option>
+                     	<option>Chhattisgarh</option>
+                     	<option>Goa</option>
+                     	<option>Gujarat</option>
+                     	<option>Haryana</option>
+                     	<option>Himachal Pradesh</option>
+                     	<option>Jammu and Kashmir</option>
+                     	<option>Jharkhand</option>
+                     	<option>Karnataka</option>
+                     	<option>Kerala</option>
+                     	<option>Madya Pradesh</option>
+                     	<option>Maharashtra</option>
+                     	<option>Manipur</option>
+                     	<option>Meghalaya</option>
+                     	<option>Mizoram</option>
+                     	<option>Nagaland</option>
+                     	<option>Orissa</option>
+                     	<option>Punjab</option>
+                     	<option>Rajasthan</option>
+                     	<option>Sikkim</option>
+                     	<option>Tamil Nadu</option>
+                     	<option>Tripura</option>
+                     	<option>Uttaranchal</option>
+                     	<option>Uttar Pradesh</option>
+                     	<option>West Bengal</option>
+	          	  </select>
+	          	     <textarea  rows="5" cols="40" name="Address" placeholder="Full Address" required  class="textarea" >
+          	             </textarea>
+                              <input type="checkbox"  required id="checkbox">
+                              <p class="accept">I accepts Ads times privacy <span>statement<br> and Terms and conditions.</span></p>
+                        <input type="submit" name="submit" value="Submit" class="btn btn-info" id="submit">
+                     <!--  <button>login</button> -->
+                  <h4>OR</h4> 
+	       </form>
+           <!-- End form -->
+           <!-- link to sign in -->
+              <a type="submit" href="commonlogin.html" target="_self" class="btn btn-primary" id="sub">Log in</a> 
+
+</body>
+</html>
